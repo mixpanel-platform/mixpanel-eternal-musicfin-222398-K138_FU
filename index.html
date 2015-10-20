@@ -83,14 +83,16 @@
                    var data1 = Object.keys(data);
                    console.log(d1);
                    console.log(data);
-                   recent.sort(function(a,b) { 
+                   data1.sort(function(a,b) { 
                        return new Date(a).getTime() - new Date(b).getTime() 
                     });
                    console.log(data1);
                   // for (var i = 0; i < selection; i++){
                   for (var i = 0; i < data1.length; i++){
-                     var top = data1[i];//data[moment().subtract(i, 'weeks').format('YYYY-MM-DD')];
-                     console.log(top);
+                     var date = data1[i];//data[moment().subtract(i, 'weeks').format('YYYY-MM-DD')];
+                     //console.log(top);
+                    var dd = data[date];
+                    console.log(dd);
                      
                    }  
         
