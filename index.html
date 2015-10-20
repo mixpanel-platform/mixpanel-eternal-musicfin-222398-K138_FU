@@ -120,13 +120,13 @@
                 type: 'area'
             },
             title: {
-                text: 'Historic and Estimated Worldwide Population Growth by Region'
+                text: 'Account created to second event by week'
             },
             subtitle: {
-                text: 'Source: Wikipedia.org'
+                text: 'Mixpanel'
             },
             xAxis: {
-                categories: ['1750', '1800', '1850', '1900', '1950', '1999', '2050'],
+               // categories: ['1750', '1800', '1850', '1900', '1950', '1999', '2050'],
                 //loop through and get weeks
                 tickmarkPlacement: 'on',
                 title: {
@@ -135,17 +135,17 @@
             },
             yAxis: {
                 title: {
-                    text: 'Billions'
+                    text: 'Retained user'
                 },
                 labels: {
                     formatter: function () {
-                        return this.value / 1000;
+                        return this.value //  / 1000;
                     }
                 }
             },
             tooltip: {
                 shared: true,
-                valueSuffix: ' millions'
+                valueSuffix: ' users'
             },
             plotOptions: {
                 area: {
