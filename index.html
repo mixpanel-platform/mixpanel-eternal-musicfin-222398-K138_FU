@@ -67,7 +67,7 @@
             from: moment().subtract(selection, 'weeks'),
             to: moment(),
             unit: 'week',                      // specifies the the bucket size; can be 'day' or 'week'
-           // interval_count: 1,                // the number of desired units
+            interval_count: 5,                // the number of desired units
           //  limit: 100,                       // maximum number of results to return
         
             // the following are undefined by default
@@ -89,23 +89,33 @@
                    console.log(data1);
                   // for (var i = 0; i < selection; i++){
                   for (var i = 0; i < data1.length; i++){
-                     var date = data1[i];//data[moment().subtract(i, 'weeks').format('YYYY-MM-DD')];
+                     var date = data1[data1.length - (i+1)];//data[moment().subtract(i, 'weeks').format('YYYY-MM-DD')];
                      //console.log(top);
                     var dd = data[date];
                     console.log(dd);
+                    var num_zero = Array.apply(null, Array(i)).map(Number.prototype.valueOf,0);
+                    num_zero.push(dd['first']);
+                    console.log(num_zero);
+                    var tmp = dd['counts'];//final list or counts needs to remove the first day!!!!!!!!
+                    var final_list = $.map(tmp, function(el) { return el });//!!!!!!!!!!!!!!!!!!!
+                    console.log(final_list);
+                    final= num_zero.concat(final_list);
+                    console.log(date);
+                    console.log(final);
+                    x = {"name": date, "data": final};
+                    runData.push(x);
+                    
+                    console.log(runData);
+        
+                    
                      
                    }  
         
               });
-        });
-        
-        
-        
-        
-        
-        
-        
-        $('#container').highcharts({
+              
+              
+              
+               $('#container').highcharts({
             chart: {
                 type: 'area'
             },
@@ -149,6 +159,8 @@
                 }
             },
             
+           
+            
 
             series: runData
             /*
@@ -170,7 +182,18 @@
             }]
             */
         });
+         console.log('hello');
+         console.log(runData);
     });
+        });
+        
+        
+        
+        console.log(runData);
+        
+        
+        
+       
     
       // Run queries and display results here
     </script>
